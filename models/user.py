@@ -1,5 +1,7 @@
 from db import db
 from security import bcrypt
+from models.message import Message
+from models.message_box import MessageBox
 
 #association table in M:N relationship between user to messages received
 user_received_msg = db.Table('user_received_msg',
