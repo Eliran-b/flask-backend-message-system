@@ -127,3 +127,5 @@ cython_debug/
 
 #encrypt secrets 
 secrets.py
+.gitsecret
+.vscode

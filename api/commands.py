@@ -13,7 +13,7 @@ def execute_script():
     from api import db
     from api.models.user import User
     from api.models.message import Message
-    from api.models.receiver import Receiver 
+    from api.models.message_box import MessageBox 
     db.drop_all()
     db.create_all()
     db.session.commit()
