@@ -33,15 +33,7 @@ class UserRegister(Resource):
         else:
             return {"access_token": access_token}, 200
     
-    def get(self):
-        from db import db
-        from models.user import User
-        from models.message_box import MessageBox
-        from models.message import Message
-        db.create_all()
-        db.session.commit()
-        return {"message": "success"} 
-
+    
 class UserLogin(Resource):
     """Login to a user account"""
     #parse request obj
