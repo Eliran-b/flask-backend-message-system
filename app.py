@@ -23,6 +23,8 @@ def user_lookup_callback(_jwt_header, jwt_data):
     return User.query.filter_by(username=identity).one_or_none()
 
 
+    
+
 
 
 if __name__ == '__main__':

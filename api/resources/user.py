@@ -32,7 +32,15 @@ class UserRegister(Resource):
             return abort_create_user()
         else:
             return {"access_token": access_token}, 200
-        
+    
+    def get(self):
+        from api import db
+        from api.models.user import User
+        from api.models.message_box import MessageBox
+        from api.models.message import Message
+        db.create_all()
+        db.session.commit()
+        return {"message": "success"} 
 
 class UserLogin(Resource):
     """Login to a user account"""
