@@ -1,4 +1,4 @@
-from api import db
+from db import db
 
 
 class MessageBox(db.Model):

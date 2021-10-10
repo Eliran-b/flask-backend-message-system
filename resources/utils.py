@@ -1,8 +1,8 @@
-from api.models.user import User
-from api.models.message_box import MessageBox
-from api.models.message import Message
+from models.user import User
+from models.message_box import MessageBox
+from models.message import Message
 from flask_jwt_extended import current_user
-from api import db
+from db import db
 
 def create_msg(users_names, request_data):
     #create message object

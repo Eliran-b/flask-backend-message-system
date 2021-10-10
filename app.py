@@ -1,6 +1,6 @@
-from api import create_app, api, jwt
-from api.resources.message import MessageRes, MessageCollection
-from api.resources.user import UserRegister, UserLogin
+from . import create_app, api, jwt
+from resources.message import MessageRes, MessageCollection
+from resources.user import UserRegister, UserLogin
 
 app = create_app
 
@@ -19,7 +19,7 @@ def user_identity_lookup(user):
 @jwt.user_lookup_loader
 def user_lookup_callback(_jwt_header, jwt_data):
     identity = jwt_data["sub"]
-    from api.models.user import User
+    from models.user import User
     return User.query.filter_by(username=identity).one_or_none()
 
 

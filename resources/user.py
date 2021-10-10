@@ -1,8 +1,8 @@
 from flask_jwt_extended.utils import create_access_token
 from flask_restful import Resource, reqparse
-from api.models.user import User
-from api import db
-from api.resources.errors import abort_create_user, abort_login_user
+from models.user import User
+from db import db
+from resources.errors import abort_create_user, abort_login_user
 
 class UserRegister(Resource):
     """Register new user"""
@@ -34,10 +34,10 @@ class UserRegister(Resource):
             return {"access_token": access_token}, 200
     
     def get(self):
-        from api import db
-        from api.models.user import User
-        from api.models.message_box import MessageBox
-        from api.models.message import Message
+        from db import db
+        from models.user import User
+        from models.message_box import MessageBox
+        from models.message import Message
         db.create_all()
         db.session.commit()
         return {"message": "success"} 

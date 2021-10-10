@@ -1,4 +1,5 @@
-from api import db, bcrypt
+from db import db
+from security import bcrypt
 
 #association table in M:N relationship between user to messages received
 user_received_msg = db.Table('user_received_msg',

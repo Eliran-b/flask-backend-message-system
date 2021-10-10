@@ -1,6 +1,6 @@
 from datetime import datetime
-from api import db
-from api.models.user import users_to_json
+from db import db
+from models.user import users_to_json
 
 
 

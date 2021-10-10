@@ -1,13 +1,12 @@
 import json
-from api import db
+from db import db
 from flask_restful import Resource, reqparse
 from flask_jwt_extended import jwt_required, current_user
-from api.models.message_box import MessageBox, messages_box_to_json
-from api.models.user import User
-from api.resources.errors import abort_all_msg, abort_msg, abort_post_msg
-from api.models.message import Message
+from models.message_box import MessageBox, messages_box_to_json
+from resources.errors import abort_all_msg, abort_msg, abort_post_msg
+from models.message import Message
 from flask import request
-from api.resources.utils import create_msg
+from resources.utils import create_msg
 
 
 class MessageRes(Resource):

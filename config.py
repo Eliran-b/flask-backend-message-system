@@ -1,5 +1,5 @@
 
-from api import secrets
+from . import secrets
 
 class Config:
      #connect db

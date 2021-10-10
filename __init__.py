@@ -1,14 +1,12 @@
 from flask import Flask
 from flask_restful import Api
-from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
-from flask_bcrypt import Bcrypt 
-from api.config import Config
+from config import Config
+from db import db
 
-db = SQLAlchemy()
 api = Api()
 jwt = JWTManager()
-bcrypt = Bcrypt()
+
 
 
 def create_app(config_class=Config):
