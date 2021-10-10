@@ -1,5 +1,4 @@
-
-from . import secrets
+import secrets
 
 class Config:
      #connect db
