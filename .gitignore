@@ -129,3 +129,6 @@ cython_debug/
 conf.py
 secrets.py
 .vscode
+
+#undo this if you try add new files
+.gitsecret
