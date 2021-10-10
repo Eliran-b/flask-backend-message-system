@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "ed03a6b5-a83e-480e-bd41-66176e5ef5cb",
+		"name": "GET DELETE Message",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - Message",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzMzg4MTIyNCwianRpIjoiMWU2NTIyMmEtYTg3Ny00YjNiLTg1MDMtYWVjYzYwZmUyMDhjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IlJvbiIsIm5iZiI6MTYzMzg4MTIyNCwiZXhwIjoxNjMzODgyMTI0fQ.wVk55WFIPEfEdZ5x7sh19Zz3udl2lqBQJijksrYoDNs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://flask-message-system-eb.herokuapp.com/message",
+					"protocol": "https",
+					"host": [
+						"flask-message-system-eb",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Message",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}

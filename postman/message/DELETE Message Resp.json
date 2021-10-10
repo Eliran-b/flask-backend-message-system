@@ -1,0 +1,19 @@
+{
+    "message_id": 1,
+    "sender_id": 3,
+    "receivers": {
+        "0": {
+            "user_id": 1,
+            "username": "Dan",
+            "active": true
+        },
+        "1": {
+            "user_id": 4,
+            "username": "Tim",
+            "active": true
+        }
+    },
+    "body": "Please send your files before we meet",
+    "subject": "New Meeting",
+    "date": "2021-10-10"
+}

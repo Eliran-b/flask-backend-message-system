@@ -1,0 +1,10 @@
+{
+    "0": {
+        "message_box_index": 3,
+        "user_id": 1,
+        "message_id": 1,
+        "read": true,
+        "receiver": true,
+        "sender": false
+    }
+}

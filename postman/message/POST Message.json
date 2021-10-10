@@ -1,0 +1,48 @@
+{
+	"info": {
+		"_postman_id": "b3f8941b-65ce-4e58-b6cd-d478ea28a4f7",
+		"name": "POST Message",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST - Create Message",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzMzg4MDMwMCwianRpIjoiOGY1NTFiYmItYmE5Yi00MTgxLThjYmEtODk4MWVlMDYyMzc0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IlJvbiIsIm5iZiI6MTYzMzg4MDMwMCwiZXhwIjoxNjMzODgxMjAwfQ.Qhv7saR0jSoZlZFngRY88Tp_I5mROc46apKx6DZSFEI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receivers_username\": [\"Tim\", \"Dan\"],\n    \"message_subject\": \"New Meeting\",\n    \"message_body\": \"Please send your files before we meet\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://flask-message-system-eb.herokuapp.com/message",
+					"protocol": "https",
+					"host": [
+						"flask-message-system-eb",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"message"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
