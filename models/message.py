@@ -1,6 +1,5 @@
 from datetime import datetime
 from db import db
-from models.user import users_to_json
 from models.message_box import MessageBox
 
 
@@ -34,6 +33,7 @@ class Message(db.Model):
 
 
     def to_json(self):
+        from models.user import users_to_json
         dict_msg = {"message_id": self.id,
                     "sender_id": self.sender_id,
                     "receivers": users_to_json(self.users_received),
