@@ -5,11 +5,11 @@ from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from db import db
 from security import bcrypt
-from conf import SuperSecretKey, prod_uri, jwt_key, jwt_time
+from test import SuperSecretKey, prod_uri, jwt_key, jwt_time
 
 app = Flask(__name__)
 
-#This data will be encrypted on the vm
+
 app.config['SECRET_KEY'] = SuperSecretKey
 app.config['SQLALCHEMY_DATABASE_URI'] = prod_uri
 app.config['JWT_SECRET_KEY'] = jwt_key
