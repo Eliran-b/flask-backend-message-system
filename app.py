@@ -5,17 +5,17 @@ from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from db import db
 from security import bcrypt
-from datetime import timedelta
-
+from conf import SuperSecretKey, prod_uri, jwt_key, jwt_time
 
 app = Flask(__name__)
 
-#in production this data will be encrypted
-app.config['SECRET_KEY'] = '30674835a84a7d369254e954'
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://gscnlevfjbncbh:43af4cc79385119f7d3287cd418d4e02ec48175e72b9752516af8abc786f8999@ec2-34-193-101-0.compute-1.amazonaws.com:5432/d24a6l5s58rhcd"
-app.config['JWT_SECRET_KEY'] = "ajdshkjfh.sjuhkfuhsf.sjddhjfsh"
+#This data will be encrypted on the vm
+app.config['SECRET_KEY'] = SuperSecretKey
+app.config['SQLALCHEMY_DATABASE_URI'] = prod_uri
+app.config['JWT_SECRET_KEY'] = jwt_key
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = jwt_time
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=15)
+
 
 api = Api(app)
 jwt = JWTManager(app)

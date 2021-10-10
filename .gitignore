@@ -126,6 +126,6 @@ cython_debug/
 .gitsecret/keys/random_seed
 
 #encrypt secrets 
+conf.py
 secrets.py
-.gitsecret
 .vscode
