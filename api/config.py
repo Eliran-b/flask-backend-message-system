@@ -1,7 +1,7 @@
 
+from api import secrets
 
 class Config:
-     from api import secrets
      #connect db
      test_conn = 'postgresql://{0}:{1}@{2}/{3}'.format(secrets.dbuser, secrets.dbpass, secrets.dbhost, secrets.dbname)
      prod_conn = secrets.prod_uri
