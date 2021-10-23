@@ -2,7 +2,6 @@ from flask_jwt_extended.utils import create_access_token
 from flask_restful import Resource, reqparse
 from models.user import User
 from db import db
-from resources.errors import abort_create_user, abort_login_user
 
 class UserRegister(Resource):
     """Register new user"""
@@ -28,8 +27,8 @@ class UserRegister(Resource):
             db.session.add(new_user)
             db.session.commit()
             access_token = create_access_token(identity={"username": username})
-        except:
-            return abort_create_user()
+        except Exception as e:
+            return {"Error": type(e).__name__, "Message": str(e)}, 500
         else:
             return {"access_token": access_token}, 200
     
@@ -55,8 +54,8 @@ class UserLogin(Resource):
             username = request_data['username']
             user = User.query.filter_by(username=username, active=True).first()
             access_token = create_access_token(identity={"username": user.username})
-        except:
-            return abort_login_user()
+        except Exception as e:
+            return {"Error": type(e).__name__, "Message": str(e)}, 500
         else:
             return {"access_token": access_token}, 200
 

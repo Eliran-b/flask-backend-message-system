@@ -3,7 +3,6 @@ from db import db
 from flask_restful import Resource, reqparse
 from flask_jwt_extended import jwt_required, current_user
 from models.message_box import MessageBox, messages_box_to_json
-from resources.errors import abort_all_msg, abort_msg, abort_post_msg
 from models.message import Message
 from flask import request
 from resources.utils import create_msg
@@ -37,8 +36,8 @@ class MessageRes(Resource):
             receivers_names = request.json["receivers_username"]
             del request_data["receivers_username"]
             msg_obj = create_msg(receivers_names, request_data)
-        except:
-            return abort_post_msg()
+        except Exception as e:
+            return {"Error": type(e).__name__, "Message": str(e)}, 500
         else:
             return msg_obj.to_json(), 201
 
@@ -54,8 +53,8 @@ class MessageRes(Resource):
             #make the message read to True
             msg_box_obj.read = True
             db.session.commit()
-        except:
-            return abort_msg()
+        except Exception as e:
+            return {"Error": type(e).__name__, "Message": str(e)}, 404
         else: 
             return msg_box_obj.to_json(), 201
         
@@ -70,8 +69,8 @@ class MessageRes(Resource):
             msg_to_remove = MessageBox.query.filter_by(message_id=msg_obj.id, user_id=current_user.id).first()
             db.session.delete(msg_to_remove)
             db.session.commit()
-        except:
-            return abort_msg()
+        except Exception as e:
+            return {"Error": type(e).__name__, "Message": str(e)}, 404
         else:
             return msg_obj.to_json(), 201
 
@@ -96,7 +95,7 @@ class MessageCollection(Resource):
                 if msg_obj and not msg_obj.read:
                     msg_obj.read = True
                     db.session.commit()
-        except:
-                return abort_all_msg()        
+        except Exception as e:
+            return {"Error": type(e).__name__, "Message": str(e)}, 404       
         else:
             return messages_box_to_json(msgs_box_obj), 201
