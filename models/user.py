@@ -69,12 +69,13 @@ class User(db.Model):
                         }
             return user_dict
 
-def users_to_json(users_obj_list):
-    """return a json of all the users in the list"""
-    users_obj_dict={}
-    i=0
-    for user_obj in users_obj_list:
-        users_obj_dict[i] = user_obj.to_json()
-        i+=1
+    @staticmethod
+    def list_to_json(users_obj_list):
+        """return a json of all the users in the list"""
+        users_obj_dict={}
+        i=0
+        for user_obj in users_obj_list:
+            users_obj_dict[i] = user_obj.to_json()
+            i+=1
 
-    return users_obj_dict
+        return users_obj_dict

@@ -2,7 +2,7 @@ import json
 from db import db
 from flask_restful import Resource, reqparse
 from flask_jwt_extended import jwt_required, current_user
-from models.message_box import MessageBox, messages_box_to_json
+from models.message_box import MessageBox
 from models.message import Message
 from flask import request
 from resources.utils import create_msg
@@ -98,4 +98,4 @@ class MessageCollection(Resource):
         except Exception as e:
             return {"Error": type(e).__name__, "Message": str(e)}, 404       
         else:
-            return messages_box_to_json(msgs_box_obj), 201
+            return MessageBox.list_to_json(msgs_box_obj), 201

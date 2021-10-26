@@ -28,13 +28,13 @@ class MessageBox(db.Model):
                         }
         return message_box_dict
 
+    @staticmethod
+    def list_to_json(messages_box_obj_list):
+        """return a json of all the messages in the list"""
+        messages_box_dict={}
+        i=0
+        for message_box_obj in messages_box_obj_list:
+            messages_box_dict[i] = message_box_obj.to_json()
+            i+=1
 
-def messages_box_to_json(messages_box_obj_list):
-    """return a json of all the messages in the list"""
-    messages_box_dict={}
-    i=0
-    for message_box_obj in messages_box_obj_list:
-        messages_box_dict[i] = message_box_obj.to_json()
-        i+=1
-
-    return messages_box_dict
+        return messages_box_dict
